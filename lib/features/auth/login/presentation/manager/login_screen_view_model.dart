@@ -25,6 +25,7 @@ class LoginScreenViewModel extends Cubit<LoginScreenState> {
   }
 
   Future<void> _login(LoginRequestEntity request) async {
+    print("LOGIN FUNCTION STARTED");
     emit(
       state.copyWith(
         isLoading: true,
@@ -38,6 +39,7 @@ class LoginScreenViewModel extends Cubit<LoginScreenState> {
 
     switch (response) {
       case ApiSuccessResult<UserResponseEntity>():
+        print("LOGIN FUNCTION success");
         emit(
           state.copyWith(
             isLoading: false,
@@ -46,6 +48,9 @@ class LoginScreenViewModel extends Cubit<LoginScreenState> {
           ),
         );
       case ApiErrorResult<UserResponseEntity>():
+        print("LOGIN FUNCTION Failed");
+        print(response.failure.errorMessage);
+        print(response.failure.code);
         emit(
           state.copyWith(
             isLoading: false,
