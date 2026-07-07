@@ -1,6 +1,7 @@
 name: SonarCloud Analysis
 
 on:
+  push:
   pull_request:
     branches:
       - development
@@ -44,8 +45,8 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
         with:
           args: >
-            -Dsonar.organization=ahmedfayed55
-            -Dsonar.projectKey=AhmedFayed55_Super_Fitness_App
+            -Dsonar.organization=mostafaamer978
+            -Dsonar.projectKey=MostafaAmer978_Super_Fitness_App
             -Dsonar.sources=lib
             -Dsonar.tests=test
             -Dsonar.dart.analyzer.mode=FLUTTER
